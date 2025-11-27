@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile # Path to your Dockerfile
+          file: ./Dockerfiles # Path to your Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/node-app:latest # Replace 'your-node-app'
           # Add more tags if needed, e.g., tags: |
