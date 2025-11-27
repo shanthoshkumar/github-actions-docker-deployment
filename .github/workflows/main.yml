@@ -1,7 +1,11 @@
-name: node-app
-  on:
-    push:
-      branch: [main]
-  jobs:
-    build:
-      runs-on: ubuntu-latest
+name: node-app continuous integration
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
