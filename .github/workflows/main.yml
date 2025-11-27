@@ -29,9 +29,12 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfiles # Path to your Dockerfile
+          file: ./Dockerfile # Path to your Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/node-app:latest # Replace 'your-node-app'
+          tags: ${{ secrets.DOCKER_USERNAME }}/node-app:1.0 # Replace 'your-node-app'
+          platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           # Add more tags if needed, e.g., tags: |
           #   ${{ secrets.DOCKER_USERNAME }}/your-node-app:latest
           #   ${{ secrets.DOCKER_USERNAME }}/your-node-app:${{ github.sha }}
